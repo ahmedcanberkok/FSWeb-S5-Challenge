@@ -11,6 +11,25 @@ const Header = (baslik, tarih, yazi) => {
   //    <span class="temp">{ yazi }</span>
   //  </div>
   //
+
+  const headerBox = document.createElement("div");
+  headerBox.classList.add("header");
+
+  const spanBox = document.createElement("span");
+  spanBox.classList.add("date");
+  spanBox.textContent = tarih;
+  headerBox.appendChild(spanBox);
+
+  const baslikBox = document.createElement("h1");
+  baslikBox.textContent = baslik;
+  headerBox.appendChild(baslikBox);
+
+  const spanBox2 = document.createElement("span");
+  spanBox2.classList.add("temp");
+  spanBox2.textContent = yazi;
+  headerBox.appendChild(spanBox2);
+
+  return headerBox;
 }
 
 const headerEkleyici = (secici) => {
@@ -24,6 +43,11 @@ const headerEkleyici = (secici) => {
   // İPUCU: querySelector bir string alabilir (bknz: querySelector("#wrapper")) 
   // fakat aynı zamanda bir değişken de alabilir (bknz: querySelector(secici))
  
+  const secici1 = document.querySelector(secici);
+  secici1.appendChild(
+    Header("The Tech News", "10 Haziran 2023", "Teknolojinin Sesi")
+  );
+  
 }
 
 export { Header, headerEkleyici }
